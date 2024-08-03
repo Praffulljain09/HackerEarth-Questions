@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int N;
+	cin>>N;
+	int A[N];
+	for(int i=0; i<N; i++){
+		cin>>A[i];
+	}
+	long long pro=1;
+	for(int i=0; i<N; i++){
+		pro=(pro*A[i])%(1000000007);
+	}
+	cout<<pro;
+}
