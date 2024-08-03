@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int N;
+	cin>>N;
+	int fac=1;
+	for(int i=2; i<=N; i++){
+		fac=fac*i;
+	}
+	cout<<fac;
+}
