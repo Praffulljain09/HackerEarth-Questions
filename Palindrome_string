@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int getlength(char str[])
+{
+    int count = 0;
+    int i = 0;
+    while (str[i++] != '\0')
+    {
+        count++;
+    }
+    return count;
+}
+int ispalindrome(char str[], int l)
+{
+    bool pal = 1;
+    int s = 0;
+    int e = l - 1;
+    while (s < e)
+    {
+        if (str[s++] != str[e--])
+        {
+            pal = 0;
+            break;
+        }
+    }
+    if (pal == 1)
+    {
+        cout << "String is Palindrome.";
+    }
+    else
+    {
+        cout << "String is not Palindrome.";
+    }
+}
+int main()
+{
+    char str[20];
+    cout << "Enter any String: ";
+    cin >> str;
+    int l = getlength(str);
+    ispalindrome(str, l);
+}
