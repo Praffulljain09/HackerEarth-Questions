@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+void input(int arr[], int a)
+{
+    cout << "Enter elements of array:";
+    for (int i = 0; i < a; i++)
+    {
+        cin >> arr[i];
+    }
+}
+void sortedrotated(int arr[], int a){
+    int count=0;
+    for(int i=1; i<a; i++){
+        if(arr[i-1]>arr[i]){
+            count++;
+        }
+    }
+    if(arr[a-1]>arr[0]){
+        count++;
+    }
+    if(count<=1){
+        cout<<"Yes it is sorted and rotated.";
+    }
+    else{
+        cout<<"No it is not sorted and rotated.";
+    }
+}
+int main()
+{
+    int a;
+    cout << "Enter no of elements in array: ";
+    cin >> a;
+    int arr[a];
+    input(arr, a);
+    sortedrotated(arr,a);
+}
