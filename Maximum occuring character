@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int maxoccur(string &s)
+{
+    char ch[26] = {0};
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] >= 'a' && s[i] <= 'z')
+        {
+            int x = s[i] - 'a';
+            ch[x]++;
+        }
+        else if (s[i] >= 'A' && s[i] <= 'Z')
+        {
+            int x = s[i] - 'A';
+            ch[x]++;
+        }
+        i++;
+    }
+    int max = 0;
+    char c = ' ';
+
+    for (int i = 0; i < 26; i++)
+    {
+        if (ch[i] > max)
+        {
+            max = ch[i];
+            c = 'a' + i;
+        }
+    }
+    cout << c << " is occuring Maximum times.";
+    return max;
+}
+int main()
+{
+    string s;
+    cout << "Enter the word: ";
+    getline(cin, s);
+    int a = maxoccur(s);
+    cout << "Occured " << a << " times.";
+}
