@@ -1,0 +1,123 @@
+#include <iostream>
+#include<limits.h>
+using namespace std;
+void Largest_row_sum(int arr[][10], int a, int b)
+{
+    int min = INT_MIN;
+    for (int i = 0; i < a; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < b; j++)
+        {
+            sum = sum + arr[i][j];
+        }
+        if (sum > min)
+        {
+            min = sum;
+        }
+    }
+    cout <<endl<<"Largest Rowwise sum is: " << min;
+}
+bool linearsearch(int arr[][10], int a, int b, int value)
+{
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            if (arr[i][j] == value)
+            {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+void row_sum(int arr[][10], int a, int b)
+{
+    cout << "Rowwise sum is: ";
+    for (int i = 0; i < a; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < b; j++)
+        {
+            sum = sum + arr[i][j];
+        }
+        cout << sum << " ";
+    }
+}
+void column_sum(int arr[][10], int a, int b)
+{
+    cout << endl
+         << "Columnwise sum is: ";
+    for (int i = 0; i < a; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < b; j++)
+        {
+            sum = sum + arr[j][i];
+        }
+        cout << sum << " ";
+    }
+}
+void column_input(int arr[][10], int a, int b)
+{
+    cout << "Enter the elements: ";
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cin >> arr[j][i];
+        }
+    }
+}
+void row_input(int arr[][10], int a, int b)
+{
+    cout << "Enter the elements: ";
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+void print(int arr[][10], int a, int b)
+{
+    cout << "Matrix is:" << endl;
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+int main()
+{
+    int a, b;
+    cout << "Enter the number of rows: ";
+    cin >> a;
+    cout << "Enter the number of columns: ";
+    cin >> b;
+    int arr[a][10];
+    row_input(arr, a, b);
+    print(arr, a, b);
+    // column_input(arr, a, b);
+    // print(arr, a, b);
+    // row_sum(arr,a,b);
+    // column_sum(arr,a,b);
+    int value;
+    cout << "Enter the value you want to find in Matrix: ";
+    cin >> value;
+    bool ans = linearsearch(arr, a, b, value);
+    if (ans)
+    {
+        cout << "Found.............";
+    }
+    else
+    {
+        cout << "Not Found..............";
+    }
+    Largest_row_sum(arr, a, b);
+}
