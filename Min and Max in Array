@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    pair<long long, long long> getMinMax(vector<long long int> arr) {
+        long long max=LLONG_MIN;
+        long long min=LLONG_MAX;
+        for(int i=0; i<arr.size(); i++){
+            if(arr[i]>max){
+                max=arr[i];
+            }
+            if(arr[i]<min){
+                min=arr[i];
+            }
+        }
+        return {min, max};
+    }
+};
