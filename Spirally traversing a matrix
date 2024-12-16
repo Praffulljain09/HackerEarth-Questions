@@ -1,0 +1,36 @@
+class Solution {
+  public:
+    vector<int> spirallyTraverse(vector<vector<int> > &mat) {
+        vector <int> array;
+        int row=mat.size();
+        int col=mat[0].size();
+        int startrow=0;
+        int endrow=row-1;
+        int startcol=0;
+        int endcol=col-1;
+        int count=row*col;
+        while(count!=0){
+            for(int i=startcol; count!=0&& i<=endcol; i++){
+                array.push_back(mat[startrow][i]);
+                count--;
+            }
+            startrow++;
+            for(int i=startrow; count!=0 && i<=endrow; i++){
+                array.push_back(mat[i][endcol]);
+                count--;
+            }
+            endcol--;
+            for(int i=endcol; count!=0 && i>=startcol; i--){
+                array.push_back(mat[endrow][i]);
+                count--;
+            }
+            endrow--;
+            for(int i=endrow; count!=0 && i>=startrow; i--){
+                array.push_back(mat[i][startcol]);
+                count--;
+            }
+            startcol++;
+        }
+        return array;
+    }
+};
